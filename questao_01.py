@@ -43,25 +43,20 @@ def bill_validation():
         return bill
 
 
-def bill_divide_by(bill, people, tip):
+def print_result():
+    locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
+    bill = bill_validation()
+    people = people_validation()
+    tip = tip_validation()
     total_bill = bill*(1+(tip/100))
     bill_by_people = total_bill/people
-    return total_bill, bill_by_people
-
-
-def print_result(people, bill_divide_by):
-    locale.setlocale(locale.LC_ALL, "pt_BR.UTF-8")
-    a = locale.currency(bill_divide_by[1])
-    b = locale.currency(bill_divide_by[0])
     print('---' * 21,
-          'O valor total da conta, com a taxa de serviço, \n será de {}'.format(b), sep="\n")
-    print('Dividindo a conta por {} pessoa(s), cada pessoa deverá \n pagar {}'.format(
-        people, a))
+          'O valor total da conta, com a taxa de serviço, \n será de {}'.format(
+              locale.currency(total_bill)),
+          'Dividindo a conta por {} pessoa(s), cada pessoa deverá \n pagar {}'.format(
+              people, locale.currency(bill_by_people)),
+          '---' * 21,
+          sep="\n")
 
 
-bill = bill_validation()
-people = people_validation()
-tip = tip_validation()
-divide = bill_divide_by(bill, people, tip)
-print_result(people, divide)
-print('---' * 21)
+print_result()
