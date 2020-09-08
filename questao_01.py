@@ -16,9 +16,6 @@ print('{:^63}'.format('Questão 01'))
 print('===' * 21)
 
 
-# -*- coding: utf-8 -*-
-
-
 def people_validation():
     people = int(input("Informe o total de pessoas: "))
     while people <= 0:
