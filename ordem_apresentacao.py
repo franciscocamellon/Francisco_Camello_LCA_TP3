@@ -36,7 +36,7 @@ def print_result():
     for i in range(len(a)):
 
         print('    {}º - {}'.format(i+1, a[i]))
-    print('---' * 21)
+    print('---' * 21, '{:>63}'.format('Autor: Francisco Camello'), sep="\n")
 
 
 print_result()
